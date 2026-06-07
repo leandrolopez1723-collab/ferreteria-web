@@ -24,7 +24,7 @@
       object-fit: cover;
     }
 
-    /* ✅ GRID */
+    /* ✅ GRID PRODUCTOS */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -32,7 +32,7 @@
       padding: 20px;
     }
 
-    /* ✅ PRODUCTOS */
+    /* ✅ TARJETAS */
     .producto {
       background: white;
       border-radius: 10px;
@@ -58,8 +58,35 @@
 
 <body>
 
-<!-- ✅ ESTA ES LA LINEA CORRECTA DEL BANNER -->
-<img src="{{ url_for('static', filename='img/general.jpg') }}" class="banner" alt="Ferretería">
+<!-- ✅ BANNER CORRECTO PARA TU CASO -->
+<img src="/static/general.jpg" class="banner" alt="Ferretería">
 
+<h1>Ferretería Lopez</h1>
 
+<div class="grid">
 
+  {% for p in productos %}
+  <div class="producto">
+
+    <h3>{{ p.nombre }}</h3>
+    <p>$ {{ p.precio }}</p>
+
+    <button onclick="consultar('{{ p.nombre }}')">
+      Consultar
+    </button>
+
+  </div>
+  {% endfor %}
+
+</div>
+
+<script>
+function consultar(nombre){
+  window.open(
+    "https://wa.me/5492615362816?text=Hola%20quiero%20consultar%20por%20" + nombre
+  );
+}
+</script>
+
+</body>
+</html>
