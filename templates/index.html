@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ferretería Lopez</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial;
+      margin: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .producto {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    }
+
+    img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    button {
+      background: green;
+      color: white;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background: darkgreen;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Ferretería Lopez</h1>
+
+<div class="grid">
+
+  {% for p in productos %}
+  <div class="producto">
+
+    <!-- IMAGEN -->
+    <img src="{{ url_for('static', filename='img/' + p.imagen) }}" alt="producto">
+
+    <!-- NOMBRE -->
+    <h3>{{ p.nombre }}</h3>
+
+    <!-- PRECIO -->
+    <p>$ {{ p.precio }}</p>
+
+    <!-- BOTON -->
+    <button onclick="consultar('{{ p.nombre }}')">
+      Consultar
+    </button>
+
+  </div>
+  {% endfor %}
+
+</div>
+
+<script>
+function consultar(nombre){
+  window.open(
+    "https://wa.me/5492615362816?text=Hola%20quiero%20consultar%20por%20" + nombre
+  );
+}
+</script>
+
+</body>
+</html>
