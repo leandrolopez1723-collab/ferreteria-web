@@ -17,12 +17,14 @@
       margin: 20px;
     }
 
+    /* ✅ BANNER SIN ZOOM */
     .banner {
       width: 100%;
-      height: 250px;
-      object-fit: cover;
+      height: auto;   /* 🔥 CLAVE: evita el zoom */
+      display: block;
     }
 
+    /* ✅ GRID */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -30,6 +32,7 @@
       padding: 20px;
     }
 
+    /* ✅ PRODUCTOS */
     .producto {
       background: white;
       border-radius: 10px;
@@ -55,7 +58,7 @@
 
 <body>
 
-<!-- ✅ BANNER CORRECTO (ESTA ES LA LINEA CLAVE) -->
+<!-- ✅ BANNER CORRECTO -->
 <img src="{{ url_for('static', filename='img/general.jpg') }}" class="banner" alt="Ferretería">
 
 <h1>Ferretería Lopez</h1>
@@ -87,3 +90,4 @@ function consultar(nombre){
 
 </body>
 </html>
+
