@@ -2,14 +2,13 @@
 <html>
 <head>
   <title>Ferretería Lopez</title>
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
       font-family: Arial;
       margin: 0;
-      background-color: #f5f5f5;
+      background: #f5f5f5;
     }
 
     h1 {
@@ -43,8 +42,8 @@
       color: white;
       padding: 10px;
       border: none;
-      cursor: pointer;
       border-radius: 5px;
+      cursor: pointer;
     }
 
     button:hover {
@@ -60,7 +59,6 @@
 <h1>Ferretería Lopez</h1>
 
 <div class="grid">
-
   {% for p in productos %}
   <div class="producto">
     <h3>{{ p.nombre }}</h3>
@@ -71,7 +69,6 @@
     </button>
   </div>
   {% endfor %}
-
 </div>
 
 <script>
