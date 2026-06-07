@@ -17,14 +17,12 @@
       margin: 20px;
     }
 
-    /* ✅ BANNER */
     .banner {
       width: 100%;
       height: 250px;
       object-fit: cover;
     }
 
-    /* ✅ GRID PRODUCTOS */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -32,7 +30,6 @@
       padding: 20px;
     }
 
-    /* ✅ TARJETAS */
     .producto {
       background: white;
       border-radius: 10px;
@@ -58,8 +55,8 @@
 
 <body>
 
-<!-- ✅ BANNER CORRECTO PARA TU CASO -->
-<img src="/static/general.jpg" class="banner" alt="Ferretería">
+<!-- ✅ BANNER CORRECTO (ESTA ES LA LINEA CLAVE) -->
+<img src="{{ url_for('static', filename='img/general.jpg') }}" class="banner" alt="Ferretería">
 
 <h1>Ferretería Lopez</h1>
 
