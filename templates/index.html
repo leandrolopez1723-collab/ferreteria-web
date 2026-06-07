@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>Ferretería Lopez</title>
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -12,24 +11,16 @@
       background: #f5f5f5;
     }
 
-    h1 {
+    h1, h2 {
       text-align: center;
-      margin: 20px;
     }
 
-    h2 {
-      text-align: center;
-      margin-top: 30px;
-    }
-
-    /* ✅ BANNER */
     .banner {
       width: 100%;
       height: auto;
       display: block;
     }
 
-    /* ✅ PRODUCTOS */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -42,3 +33,70 @@
       border-radius: 10px;
       padding: 15px;
       text-align: center;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    }
+
+    button {
+      background: green;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: darkgreen;
+    }
+
+    .mapa {
+      padding: 20px;
+    }
+
+    .mapa iframe {
+      width: 100%;
+      height: 350px;
+      border-radius: 10px;
+      border: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ✅ BANNER BIEN ARMADO -->
+<img src="{{ url_for('static', filename='img/general.jpg') }}" class="banner" alt="Ferretería">
+
+<h1>Ferretería Lopez</h1>
+
+<div class="grid">
+  {% for p in productos %}
+  <div class="producto">
+    <h3>{{ p.nombre }}</h3>
+    <p>$ {{ p.precio }}</p>
+
+    <button onclick="consultar('{{ p.nombre }}')">
+      Consultar
+    </button>
+  </div>
+  {% endfor %}
+</div>
+
+<!-- ✅ MAPA CORRECTO -->
+<div class="mapa">
+  <h2>Nuestra Ubicación</h2>
+
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5215.703611879514!2d-68.82822096384766!3d-32.927561075846796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e0bfb43e3ca81%3A0xc1a27772a3f50775!2sBuloner%C3%ADa%20-%20ferreter%C3%ADa%20Sergio%20L%C3%B3pez!5e0!3m2!1ses-419!2sar!4v1780866456535!5m2!1ses-419!2sar" loading="lazy"></iframe>
+
+</div>
+
+<script>
+function consultar(nombre){
+  window.open(
+    "https://wa.me/5492615362816?text=Hola%20quiero%20consultar%20por%20" + nombre
+  );
+}
+</script>
+
+</body>
+</html>
